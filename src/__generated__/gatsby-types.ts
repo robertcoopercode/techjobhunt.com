@@ -1487,6 +1487,8 @@ type Query_allSitePageArgs = {
 
 type Query_siteArgs = {
   buildTime: Maybe<DateQueryOperatorInput>;
+  port: Maybe<IntQueryOperatorInput>;
+  host: Maybe<StringQueryOperatorInput>;
   polyfill: Maybe<BooleanQueryOperatorInput>;
   pathPrefix: Maybe<StringQueryOperatorInput>;
   id: Maybe<StringQueryOperatorInput>;
@@ -1569,6 +1571,8 @@ type Query_allSitePluginArgs = {
 
 type Site = Node & {
   readonly buildTime: Maybe<Scalars['Date']>;
+  readonly port: Maybe<Scalars['Int']>;
+  readonly host: Maybe<Scalars['String']>;
   readonly polyfill: Maybe<Scalars['Boolean']>;
   readonly pathPrefix: Maybe<Scalars['String']>;
   readonly id: Scalars['ID'];
@@ -1769,6 +1773,8 @@ type SiteEdge = {
 
 enum SiteFieldsEnum {
   buildTime = 'buildTime',
+  port = 'port',
+  host = 'host',
   polyfill = 'polyfill',
   pathPrefix = 'pathPrefix',
   id = 'id',
@@ -1861,6 +1867,8 @@ enum SiteFieldsEnum {
 
 type SiteFilterInput = {
   readonly buildTime: Maybe<DateQueryOperatorInput>;
+  readonly port: Maybe<IntQueryOperatorInput>;
+  readonly host: Maybe<StringQueryOperatorInput>;
   readonly polyfill: Maybe<BooleanQueryOperatorInput>;
   readonly pathPrefix: Maybe<StringQueryOperatorInput>;
   readonly id: Maybe<StringQueryOperatorInput>;
@@ -2065,6 +2073,7 @@ enum SitePageFieldsEnum {
   pluginCreator___pluginOptions___theme_color = 'pluginCreator.pluginOptions.theme_color',
   pluginCreator___pluginOptions___display = 'pluginCreator.pluginOptions.display',
   pluginCreator___pluginOptions___icon = 'pluginCreator.pluginOptions.icon',
+  pluginCreator___pluginOptions___trackingId = 'pluginCreator.pluginOptions.trackingId',
   pluginCreator___pluginOptions___pathCheck = 'pluginCreator.pluginOptions.pathCheck',
   pluginCreator___nodeAPIs = 'pluginCreator.nodeAPIs',
   pluginCreator___browserAPIs = 'pluginCreator.browserAPIs',
@@ -2262,6 +2271,7 @@ enum SitePluginFieldsEnum {
   pluginOptions___theme_color = 'pluginOptions.theme_color',
   pluginOptions___display = 'pluginOptions.display',
   pluginOptions___icon = 'pluginOptions.icon',
+  pluginOptions___trackingId = 'pluginOptions.trackingId',
   pluginOptions___pathCheck = 'pluginOptions.pathCheck',
   nodeAPIs = 'nodeAPIs',
   browserAPIs = 'browserAPIs',
@@ -2386,6 +2396,7 @@ type SitePluginPluginOptions = {
   readonly theme_color: Maybe<Scalars['String']>;
   readonly display: Maybe<Scalars['String']>;
   readonly icon: Maybe<Scalars['String']>;
+  readonly trackingId: Maybe<Scalars['String']>;
   readonly pathCheck: Maybe<Scalars['Boolean']>;
 };
 
@@ -2416,6 +2427,7 @@ type SitePluginPluginOptionsFilterInput = {
   readonly theme_color: Maybe<StringQueryOperatorInput>;
   readonly display: Maybe<StringQueryOperatorInput>;
   readonly icon: Maybe<StringQueryOperatorInput>;
+  readonly trackingId: Maybe<StringQueryOperatorInput>;
   readonly pathCheck: Maybe<BooleanQueryOperatorInput>;
 };
 
@@ -2443,15 +2455,15 @@ type StringQueryOperatorInput = {
   readonly glob: Maybe<Scalars['String']>;
 };
 
-type HomeImageOneQueryVariables = {};
-
-
-type HomeImageOneQuery = { readonly file: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluidFragment> }> }> };
-
 type HomeImageTwoQueryVariables = {};
 
 
 type HomeImageTwoQuery = { readonly file: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluidFragment> }> }> };
+
+type HomeImageOneQueryVariables = {};
+
+
+type HomeImageOneQuery = { readonly file: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluidFragment> }> }> };
 
 type LogoQueryVariables = {};
 
@@ -2505,5 +2517,10 @@ type GatsbyImageSharpSizes_withWebp_tracedSVGFragment = Pick<ImageSharpSizes, 't
 type GatsbyImageSharpSizes_noBase64Fragment = Pick<ImageSharpSizes, 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
 
 type GatsbyImageSharpSizes_withWebp_noBase64Fragment = Pick<ImageSharpSizes, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
+
+type PagesQueryQueryVariables = {};
+
+
+type PagesQueryQuery = { readonly allSitePage: { readonly nodes: ReadonlyArray<Pick<SitePage, 'path'>> } };
 
 }

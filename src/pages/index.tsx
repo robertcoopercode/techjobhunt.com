@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 /** @jsx jsx */
 import { jsx, css } from '@emotion/core';
 import Layout from '../components/layout';
@@ -70,7 +70,18 @@ const PricingOption: React.FC<{
                     </Box>
                 ))}
             </Flex>
-            <Button mt={8} isFullWidth variantColor="purple" href="https://app.techjobhunt.com/signup" as="a">
+            <Button
+                mt={8}
+                isFullWidth
+                variantColor="purple"
+                href="https://app.techjobhunt.com/signup"
+                as="a"
+                onClick={() => {
+                    window.amplitude
+                        .getInstance()
+                        .logEvent('signup click', { element: isPremium ? 'premium pricing' : 'free pricing' });
+                }}
+            >
                 Get started
             </Button>
         </Box>
@@ -105,6 +116,9 @@ enum PricingFrequency {
 
 const HomePage: React.FC<{}> = () => {
     const [selectedPricingFrequency, setSelectedPricingFrequency] = useState(PricingFrequency.MONTLHY);
+    useEffect(() => {
+        window.amplitude.getInstance().logEvent('page view', { page: 'home' });
+    }, []);
     return (
         <Layout>
             <SEO />
@@ -138,7 +152,15 @@ const HomePage: React.FC<{}> = () => {
                     >
                         Record job applications and view analytics related to your job hunt
                     </Text>
-                    <Button size="lg" as="a" href="https://app.techjobhunt.com/signup" variantColor="purple">
+                    <Button
+                        size="lg"
+                        as="a"
+                        href="https://app.techjobhunt.com/signup"
+                        variantColor="purple"
+                        onClick={() => {
+                            window.amplitude.getInstance().logEvent('signup click', { element: 'hero section' });
+                        }}
+                    >
                         Get started
                     </Button>
                 </Box>
@@ -192,6 +214,7 @@ const HomePage: React.FC<{}> = () => {
                             isSelected={selectedPricingFrequency === PricingFrequency.MONTLHY}
                             onClick={(): void => {
                                 setSelectedPricingFrequency(PricingFrequency.MONTLHY);
+                                window.amplitude.getInstance().logEvent('View pricing', { frequency: 'monthly' });
                             }}
                         />
                         <PricingButton
@@ -199,6 +222,7 @@ const HomePage: React.FC<{}> = () => {
                             isSelected={selectedPricingFrequency === PricingFrequency.YEARLY}
                             onClick={(): void => {
                                 setSelectedPricingFrequency(PricingFrequency.YEARLY);
+                                window.amplitude.getInstance().logEvent('View pricing', { frequency: 'yearly' });
                             }}
                         />
                     </Flex>

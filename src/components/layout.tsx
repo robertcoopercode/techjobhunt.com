@@ -24,10 +24,26 @@ const Layout: React.FC<{}> = ({ children }) => {
                     <Logo />
                 </a>
                 <ButtonGroup ml={{ sm: 'auto' }} mt={{ base: 6, sm: 'unset' }}>
-                    <Button as="a" href="https://app.techjobhunt.com/login" variant="outline" variantColor="purple">
+                    <Button
+                        as="a"
+                        href="https://app.techjobhunt.com/login"
+                        variant="outline"
+                        variantColor="purple"
+                        onClick={() => {
+                            window.amplitude.getInstance().logEvent('login click');
+                        }}
+                    >
                         Login
                     </Button>
-                    <Button as="a" href="https://app.techjobhunt.com/signup" variant="solid" variantColor="purple">
+                    <Button
+                        as="a"
+                        href="https://app.techjobhunt.com/signup"
+                        variant="solid"
+                        variantColor="purple"
+                        onClick={() => {
+                            window.amplitude.getInstance().logEvent('signup click', { element: 'main navigation' });
+                        }}
+                    >
                         Signup
                     </Button>
                 </ButtonGroup>
@@ -36,10 +52,24 @@ const Layout: React.FC<{}> = ({ children }) => {
             <Flex direction="column" alignItems="center" as="footer" paddingTop={20} paddingBottom={16}>
                 <Flex as="ul" listStyleType="none" mb={5}>
                     <FooterListItem>
-                        <Link href="mailto:support@techjobhunt.com">support</Link>
+                        <Link
+                            href="mailto:support@techjobhunt.com"
+                            onClick={() => {
+                                window.amplitude.getInstance().logEvent('support email link click');
+                            }}
+                        >
+                            support
+                        </Link>
                     </FooterListItem>
                     <FooterListItem>
-                        <Link href="https://www.iubenda.com/privacy-policy/62237890" target="blank" rel="noopener">
+                        <Link
+                            href="https://www.iubenda.com/privacy-policy/62237890"
+                            target="blank"
+                            rel="noopener"
+                            onClick={() => {
+                                window.amplitude.getInstance().logEvent('privacy policy link click');
+                            }}
+                        >
                             privacy
                         </Link>
                     </FooterListItem>
@@ -48,13 +78,24 @@ const Layout: React.FC<{}> = ({ children }) => {
                             href="https://www.iubenda.com/terms-and-conditions/62237890"
                             target="blank"
                             rel="noopener"
+                            onClick={() => {
+                                window.amplitude.getInstance().logEvent('terms & conditions link click');
+                            }}
                         >
                             terms & conditions
                         </Link>
                     </FooterListItem>
                 </Flex>
                 <Text>
-                    Made in 🇨🇦 by <Link href="https://www.robertcooper.me/">Robert Cooper</Link>
+                    Made in 🇨🇦 by{' '}
+                    <Link
+                        href="https://www.robertcooper.me/"
+                        onClick={() => {
+                            window.amplitude.getInstance().logEvent('robert cooper website link click');
+                        }}
+                    >
+                        Robert Cooper
+                    </Link>
                 </Text>
             </Flex>
         </>
