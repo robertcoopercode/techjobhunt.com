@@ -6293,6 +6293,14 @@ gatsby-plugin-chakra-ui@^0.1.4:
   resolved "https://registry.yarnpkg.com/gatsby-plugin-chakra-ui/-/gatsby-plugin-chakra-ui-0.1.4.tgz#2e8fcb85fa75b5adc4265a937766b47a4717900d"
   integrity sha512-RofWX5ytqB7UDGQfTflXmeHOgqLXvZj4TnDE8JZyHNWiYR0vJGxM/UXBdGzC/fBwcfZWG3FUUAONk0znlUY/OQ==
 
+gatsby-plugin-google-analytics@^2.2.4:
+  version "2.2.4"
+  resolved "https://registry.yarnpkg.com/gatsby-plugin-google-analytics/-/gatsby-plugin-google-analytics-2.2.4.tgz#d03ae7b8088240f283a82d5ac5f843ee636a0f32"
+  integrity sha512-PupngEov6tod6AOybZMq4Iaaeo6MmzgwBcWljMWLetO5ugPV5rAkTSLJsaINk8wzImQsIDNMBg2GIaU94g1vJw==
+  dependencies:
+    "@babel/runtime" "^7.8.7"
+    minimatch "3.0.4"
+
 gatsby-plugin-manifest@^2.3.3:
   version "2.3.3"
   resolved "https://registry.yarnpkg.com/gatsby-plugin-manifest/-/gatsby-plugin-manifest-2.3.3.tgz#119b9e648428a0db8979d577d2fdb20a9f3c18b7"
