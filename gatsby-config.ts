@@ -8,6 +8,7 @@ type Plugin =
 /* eslint-disable @typescript-eslint/camelcase */
 module.exports = {
     plugins: [
+        // 'gatsby-plugin-chakra-ui',
         {
             resolve: `gatsby-plugin-typegen`,
             options: {

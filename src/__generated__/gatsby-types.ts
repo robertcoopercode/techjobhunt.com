@@ -1487,9 +1487,6 @@ type Query_allSitePageArgs = {
 
 type Query_siteArgs = {
   buildTime: Maybe<DateQueryOperatorInput>;
-  siteMetadata: Maybe<SiteSiteMetadataFilterInput>;
-  port: Maybe<IntQueryOperatorInput>;
-  host: Maybe<StringQueryOperatorInput>;
   polyfill: Maybe<BooleanQueryOperatorInput>;
   pathPrefix: Maybe<StringQueryOperatorInput>;
   id: Maybe<StringQueryOperatorInput>;
@@ -1572,9 +1569,6 @@ type Query_allSitePluginArgs = {
 
 type Site = Node & {
   readonly buildTime: Maybe<Scalars['Date']>;
-  readonly siteMetadata: Maybe<SiteSiteMetadata>;
-  readonly port: Maybe<Scalars['Int']>;
-  readonly host: Maybe<Scalars['String']>;
   readonly polyfill: Maybe<Scalars['Boolean']>;
   readonly pathPrefix: Maybe<Scalars['String']>;
   readonly id: Scalars['ID'];
@@ -1775,11 +1769,6 @@ type SiteEdge = {
 
 enum SiteFieldsEnum {
   buildTime = 'buildTime',
-  siteMetadata___title = 'siteMetadata.title',
-  siteMetadata___description = 'siteMetadata.description',
-  siteMetadata___author = 'siteMetadata.author',
-  port = 'port',
-  host = 'host',
   polyfill = 'polyfill',
   pathPrefix = 'pathPrefix',
   id = 'id',
@@ -1872,9 +1861,6 @@ enum SiteFieldsEnum {
 
 type SiteFilterInput = {
   readonly buildTime: Maybe<DateQueryOperatorInput>;
-  readonly siteMetadata: Maybe<SiteSiteMetadataFilterInput>;
-  readonly port: Maybe<IntQueryOperatorInput>;
-  readonly host: Maybe<StringQueryOperatorInput>;
   readonly polyfill: Maybe<BooleanQueryOperatorInput>;
   readonly pathPrefix: Maybe<StringQueryOperatorInput>;
   readonly id: Maybe<StringQueryOperatorInput>;
@@ -2438,18 +2424,6 @@ type SitePluginSortInput = {
   readonly order: Maybe<ReadonlyArray<Maybe<SortOrderEnum>>>;
 };
 
-type SiteSiteMetadata = {
-  readonly title: Maybe<Scalars['String']>;
-  readonly description: Maybe<Scalars['String']>;
-  readonly author: Maybe<Scalars['String']>;
-};
-
-type SiteSiteMetadataFilterInput = {
-  readonly title: Maybe<StringQueryOperatorInput>;
-  readonly description: Maybe<StringQueryOperatorInput>;
-  readonly author: Maybe<StringQueryOperatorInput>;
-};
-
 type SiteSortInput = {
   readonly fields: Maybe<ReadonlyArray<Maybe<SiteFieldsEnum>>>;
   readonly order: Maybe<ReadonlyArray<Maybe<SortOrderEnum>>>;
@@ -2483,11 +2457,6 @@ type LogoQueryVariables = {};
 
 
 type LogoQuery = { readonly file: Maybe<Pick<File, 'publicURL'>> };
-
-type SEOQueryVariables = {};
-
-
-type SEOQuery = { readonly site: Maybe<{ readonly siteMetadata: Maybe<Pick<SiteSiteMetadata, 'title' | 'description' | 'author'>> }> };
 
 type GatsbyImageSharpFixedFragment = Pick<ImageSharpFixed, 'base64' | 'width' | 'height' | 'src' | 'srcSet'>;
 
@@ -2536,10 +2505,5 @@ type GatsbyImageSharpSizes_withWebp_tracedSVGFragment = Pick<ImageSharpSizes, 't
 type GatsbyImageSharpSizes_noBase64Fragment = Pick<ImageSharpSizes, 'aspectRatio' | 'src' | 'srcSet' | 'sizes'>;
 
 type GatsbyImageSharpSizes_withWebp_noBase64Fragment = Pick<ImageSharpSizes, 'aspectRatio' | 'src' | 'srcSet' | 'srcWebp' | 'srcSetWebp' | 'sizes'>;
-
-type PagesQueryQueryVariables = {};
-
-
-type PagesQueryQuery = { readonly allSitePage: { readonly nodes: ReadonlyArray<Pick<SitePage, 'path'>> } };
 
 }
