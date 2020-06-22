@@ -204,67 +204,12 @@ const HomePage: React.FC<{}> = () => {
                 />
             </Box>
             <Box textAlign="center" py={12} maxWidth={1100} mx="auto">
-                <Text mb={12} fontSize="4xl">
+                <Text mb={12} fontSize="4xl" color="purple.700">
                     Pricing
                 </Text>
                 <Flex mb={10} justify="center">
-                    <Flex>
-                        <PricingButton
-                            title="Monthly"
-                            isSelected={selectedPricingFrequency === PricingFrequency.MONTLHY}
-                            onClick={(): void => {
-                                setSelectedPricingFrequency(PricingFrequency.MONTLHY);
-                                window.amplitude.getInstance().logEvent('View pricing', { frequency: 'monthly' });
-                            }}
-                        />
-                        <PricingButton
-                            title="Yearly"
-                            isSelected={selectedPricingFrequency === PricingFrequency.YEARLY}
-                            onClick={(): void => {
-                                setSelectedPricingFrequency(PricingFrequency.YEARLY);
-                                window.amplitude.getInstance().logEvent('View pricing', { frequency: 'yearly' });
-                            }}
-                        />
-                    </Flex>
+                    <Text fontSize="2xl">FREE!</Text>
                 </Flex>
-                <Box
-                    display="grid"
-                    flexWrap="wrap"
-                    gridTemplateColumns={{ base: 'minmax(0, 1fr)', md: '1fr 1fr' }}
-                    justifyContent="center"
-                    mb={10}
-                    px={4}
-                    gridGap={12}
-                    css={css`
-                        & > div:first-of-type {
-                            margin-left: auto;
-                        }
-                        ,
-                        & > div:last-of-type {
-                            margin-right: auto;
-                        }
-                    `}
-                >
-                    <PricingOption
-                        title={'Free'}
-                        description="For the casual job seeker applying to few jobs."
-                        price="$0"
-                        features={['All app features', 'Limit of 10 job applications']}
-                    />
-                    <PricingOption
-                        title={'Premium'}
-                        description={'For the active job seeker applying to many jobs.'}
-                        price={selectedPricingFrequency === PricingFrequency.MONTLHY ? '$5' : '$4'}
-                        isPremium
-                        features={[
-                            'All app features',
-                            <React.Fragment key="feature">
-                                <span>Unlimited</span> job applications
-                            </React.Fragment>,
-                        ]}
-                    />
-                </Box>
-                <Text>All prices shown are in USD</Text>
             </Box>
         </Layout>
     );

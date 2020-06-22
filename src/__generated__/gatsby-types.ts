@@ -2455,15 +2455,15 @@ type StringQueryOperatorInput = {
   readonly glob: Maybe<Scalars['String']>;
 };
 
-type HomeImageTwoQueryVariables = {};
-
-
-type HomeImageTwoQuery = { readonly file: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluidFragment> }> }> };
-
 type HomeImageOneQueryVariables = {};
 
 
 type HomeImageOneQuery = { readonly file: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluidFragment> }> }> };
+
+type HomeImageTwoQueryVariables = {};
+
+
+type HomeImageTwoQuery = { readonly file: Maybe<{ readonly childImageSharp: Maybe<{ readonly fluid: Maybe<GatsbyImageSharpFluidFragment> }> }> };
 
 type LogoQueryVariables = {};
 
